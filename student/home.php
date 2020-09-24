@@ -83,9 +83,9 @@ $username=$_SESSION['username'];
                                         include "../functions/connect.php";
                                       
                                         $sql = "SELECT * FROM `tbl_category` ";
-                                        $run = mysql_query($sql);
+                                        $run = mysqli_query($con,$sql);
 
-                                        while($row=mysql_fetch_array($run)){
+                                        while($row=mysqli_fetch_array($run)){
                                         
                                             $id = $row['cat_Id'];
                                          	$name = $row['name'];

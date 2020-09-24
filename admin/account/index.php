@@ -71,8 +71,8 @@ $adm_user=$_SESSION['adm_user'];
                         <?php
                                     include '../../functions/connect.php';
 
-                                    $result=mysql_query("SELECT count(*) as total from tbl_teacher");
-                                    $data=mysql_fetch_assoc($result);
+                                    $result=mysqli_query($con,"SELECT count(*) as total from tbl_teacher");
+                                    $data=mysqli_fetch_assoc($result);
                                     $percent = $data['total'];
                                     
                                     ?>
@@ -82,8 +82,8 @@ $adm_user=$_SESSION['adm_user'];
                         <?php
                                     include '../../functions/connect.php';
 
-                                    $result=mysql_query("SELECT count(*) as total from tbl_user");
-                                    $data=mysql_fetch_assoc($result);
+                                    $result=mysqli_query($con,"SELECT count(*) as total from tbl_user");
+                                    $data=mysqli_fetch_assoc($result);
                                     $percent = $data['total'];
                                     
                                     ?>
@@ -94,8 +94,8 @@ $adm_user=$_SESSION['adm_user'];
                           <?php
                                     include '../../functions/connect.php';
 
-                                    $result=mysql_query("SELECT count(*) as total from tbl_category");
-                                    $data=mysql_fetch_assoc($result);
+                                    $result=mysqli_query($con,"SELECT count(*) as total from tbl_category");
+                                    $data=mysqli_fetch_assoc($result);
                                     $percent = $data['total'];
                                     
                                     ?>
@@ -105,8 +105,8 @@ $adm_user=$_SESSION['adm_user'];
                         <?php
                                     include '../../functions/connect.php';
 
-                                    $result=mysql_query("SELECT count(*) as total from tbl_contact");
-                                    $data=mysql_fetch_assoc($result);
+                                    $result=mysqli_query($con,"SELECT count(*) as total from tbl_contact");
+                                    $data=mysqli_fetch_assoc($result);
                                     $percent = $data['total'];
                                     
                                     ?>
@@ -145,8 +145,8 @@ $adm_user=$_SESSION['adm_user'];
                             <?php
                             include "../../functions/connect.php";
 
-                            $sql = mysql_query("SELECT * FROM `tbl_admin`");
-                            while ($run = mysql_fetch_array($sql)) {
+                            $sql = mysqli_query($con,"SELECT * FROM `tbl_admin`");
+                            while ($run = mysqli_fetch_array($sql)) {
                                 extract($run);
                                 
                             }
@@ -165,8 +165,8 @@ $adm_user=$_SESSION['adm_user'];
                                     {
 
 
-                                        $s = mysql_query("UPDATE tbl_admin SET adm_user ='$user',adm_pwd=md5('$pwd') WHERE adm_Id")
-                                                    or die(mysql_error()); 
+                                        $s = mysqli_query($con,"UPDATE tbl_admin SET adm_user ='$user',adm_pwd=md5('$pwd') WHERE adm_Id")
+                                                    or die(mysqli_error()); 
                                         if($s==true){
                                             echo '<script language="javascript">';
                                             echo 'alert("Successfully Updated")';
@@ -189,7 +189,7 @@ $adm_user=$_SESSION['adm_user'];
             </div>
             <hr>
             <footer>
-                <p>&copy; 2015</p>
+                <p>&copy; 2020</p>
             </footer>
         </div>
          <script src="../../vendors/jquery-1.9.1.js"></script>

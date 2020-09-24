@@ -71,8 +71,8 @@ $adm_user=$_SESSION['adm_user'];
                         <?php
                                     include '../../functions/connect.php';
 
-                                    $result=mysql_query("SELECT count(*) as total from tbl_teacher");
-                                    $data=mysql_fetch_assoc($result);
+                                    $result=mysqli_query($con,"SELECT count(*) as total from tbl_teacher");
+                                    $data=mysqli_fetch_assoc($result);
                                     $percent = $data['total'];
                                     
                                     ?>
@@ -82,8 +82,8 @@ $adm_user=$_SESSION['adm_user'];
                         <?php
                                     include '../../functions/connect.php';
 
-                                    $result=mysql_query("SELECT count(*) as total from tbl_user");
-                                    $data=mysql_fetch_assoc($result);
+                                    $result=mysqli_query($con,"SELECT count(*) as total from tbl_user");
+                                    $data=mysqli_fetch_assoc($result);
                                     $percent = $data['total'];
                                     
                                     ?>
@@ -94,8 +94,8 @@ $adm_user=$_SESSION['adm_user'];
                           <?php
                                     include '../../functions/connect.php';
 
-                                    $result=mysql_query("SELECT count(*) as total from tbl_category");
-                                    $data=mysql_fetch_assoc($result);
+                                    $result=mysqli_query($con,"SELECT count(*) as total from tbl_category");
+                                    $data=mysqli_fetch_assoc($result);
                                     $percent = $data['total'];
                                     
                                     ?>
@@ -105,8 +105,8 @@ $adm_user=$_SESSION['adm_user'];
                         <?php
                                     include '../../functions/connect.php';
 
-                                    $result=mysql_query("SELECT count(*) as total from tbl_contact");
-                                    $data=mysql_fetch_assoc($result);
+                                    $result=mysqli_query($con,"SELECT count(*) as total from tbl_contact");
+                                    $data=mysqli_fetch_assoc($result);
                                     $percent = $data['total'];
                                     
                                     ?>

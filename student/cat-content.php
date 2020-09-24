@@ -81,14 +81,14 @@ $username=$_SESSION['username'];
         require_once "../functions/connect.php";
        
 
-        $sql = mysql_query("SELECT * FROM `tbl_topic`  WHERE `cat_Id`=".$_GET["cat_Id"]);
-        if(mysql_num_rows($sql)==0)
+        $sql = mysqli_query($con,"SELECT * FROM `tbl_topic`  WHERE `cat_Id`=".$_GET["cat_Id"]);
+        if(mysqli_num_rows($sql)==0)
         {
         echo "<p class='alert alert-danger'>"."No Post have been found"."</p>";
         }
         else                            
         {
-        while($row=mysql_fetch_array($sql)){   
+        while($row=mysqli_fetch_array($sql)){   
         $id = $row['topic_Id'];
         $title = $row['title'];
         $category = $row['cat_Id'];

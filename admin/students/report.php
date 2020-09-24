@@ -30,9 +30,9 @@
                                         include "../../functions/connect.php";
                                       
                                         $sql = "SELECT * FROM `tbl_user` ";
-                                        $run = mysql_query($sql);
+                                        $run = mysqli_query($con,$sql);
 
-                                        while($row=mysql_fetch_array($run)){
+                                        while($row=mysqli_fetch_array($run)){
                                             $id = $row['user_Id'];
                                             echo '<tr class="odd gradeX" id="rec">';?>
                                            <?php

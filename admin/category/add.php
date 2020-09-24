@@ -2,7 +2,7 @@
    include "../../functions/connect.php";
    extract($_POST);
 
-   $sql = mysql_query("INSERT INTO `tbl_category`(`name`, `description`)  VALUES ('$cat_name','$cat_desc')");
+   $sql = mysqli_query($con,"INSERT INTO `tbl_category`(`name`, `description`)  VALUES ('$cat_name','$cat_desc')");
 
     
                     if($sql==true)

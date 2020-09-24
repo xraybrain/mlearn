@@ -7,12 +7,12 @@
     $password = $_POST['pwd'];
 	$pwd = md5($password);
 
-	$username = mysql_real_escape_string($_POST['uname']);
-    $password = mysql_real_escape_string($_POST['pwd']);
+	$username = mysqli_real_escape_string($con,$_POST['uname']);
+    $password = mysqli_real_escape_string($con,$_POST['pwd']);
 
     $query = "SELECT * FROM tbl_teacher WHERE uname = '$username' AND pwd = '$password'";
-    $result = mysql_query($query) or die ("Verification error");
-    $array = mysql_fetch_array($result);
+    $result = mysqli_query($con,$query) or die ("Verification error");
+    $array = mysqli_fetch_array($result);
     
     if ($array['uname'] == $username){
         $_SESSION['uname'] = $username;

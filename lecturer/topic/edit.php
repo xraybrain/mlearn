@@ -69,8 +69,8 @@ $uname=$_SESSION['uname'];
                         <?php
                                     include '../../functions/connect.php';
 
-                                    $result=mysql_query("SELECT count(*) as total from tbl_topic");
-                                    $data=mysql_fetch_assoc($result);
+                                    $result=mysqli_query($con,"SELECT count(*) as total from tbl_topic");
+                                    $data=mysqli_fetch_assoc($result);
                                     $percent = $data['total'];
                                     
                                     ?>
@@ -81,8 +81,8 @@ $uname=$_SESSION['uname'];
                         <?php
                                     include '../../functions/connect.php';
 
-                                    $result=mysql_query("SELECT count(*) as total from tbl_quiz");
-                                    $data=mysql_fetch_assoc($result);
+                                    $result=mysqli_query($con,"SELECT count(*) as total from tbl_quiz");
+                                    $data=mysqli_fetch_assoc($result);
                                     $percent = $data['total'];
                                     
                                     ?>
@@ -93,8 +93,8 @@ $uname=$_SESSION['uname'];
                         <?php
                                     include '../../functions/connect.php';
 
-                                    $result=mysql_query("SELECT count(*) as total from tbl_comment");
-                                    $data=mysql_fetch_assoc($result);
+                                    $result=mysqli_query($con,"SELECT count(*) as total from tbl_comment");
+                                    $data=mysqli_fetch_assoc($result);
                                     $percent = $data['total'];
                                     
                                     ?>
@@ -139,9 +139,9 @@ $uname=$_SESSION['uname'];
              $id = $_GET['topic_Id'];
                                       
                 $sql = "SELECT * FROM `tbl_topic` WHERE `topic_Id`='$id'";
-                $run = mysql_query($sql);
+                $run = mysqli_query($con,$sql);
 
-                while($row=mysql_fetch_array($run))
+                while($row=mysqli_fetch_array($run))
                 {
                     $id = $row['topic_Id'];
                                                    
@@ -158,7 +158,7 @@ $uname=$_SESSION['uname'];
                     date_default_timezone_set("Asia/Taipei");
                         $datetime=date("Y-m-d h:i:sa");
                     $sql = "UPDATE `tbl_topic` SET `title`='$title',`content`='$content',`datetime_posted`='$datetime',`cat_Id`='$category' WHERE `topic_Id`='$id'";
-                    $run = mysql_query($sql);
+                    $run = mysqli_query($con,$sql);
                               
                     if($run==true)
                         {

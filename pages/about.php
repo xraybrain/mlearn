@@ -92,18 +92,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         include "../functions/connect.php";
                                       
                                         $sql = "SELECT *  FROM `tbl_topic`";
-                                        $run = mysql_query($sql);
+                                        $run = mysqli_query($con, $sql) or die(mysqli_error($con));
 
-                                        while($row=mysql_fetch_array($run)){
+                                        while($row=mysqli_fetch_assoc($run)){
                                         
                                             $id = $row['topic_Id'];
                                             $title = $row['title'];
-                                            $description = $row['description'];
                                          
                                             ?>
                    <ul class="list-unstyled list-spaces">
                         <li><a href="../functions/alert.php"><?php echo ucfirst($title);?></a><br>
-                            <span class="small text-muted"><?php echo ucfirst($description);?></span></li>
+                        </li>
                       <?php 
                         }
                       ?>

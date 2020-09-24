@@ -100,14 +100,14 @@ $username=$_SESSION['username'];
         require_once "../functions/connect.php";
        
 
-        $sql = mysql_query("SELECT * FROM `tbl_topic`  WHERE `topic_Id`=".$_GET["topic_Id"]);
-        if(mysql_num_rows($sql)==0)
+        $sql = mysqli_query($con,"SELECT * FROM `tbl_topic`  WHERE `topic_Id`=".$_GET["topic_Id"]);
+        if(mysqli_num_rows($sql)==0)
         {
         echo "<p class='alert alert-danger'>"."No Post have been found"."</p>";
         }
         else                            
         {
-        while($row=mysql_fetch_array($sql)){   
+        while($row=mysqli_fetch_array($sql)){   
         $id = $row['topic_Id'];
         $title = $row['title'];
         $category = $row['cat_Id'];
@@ -138,14 +138,14 @@ $username=$_SESSION['username'];
                                         include "../functions/connect.php";
                                       
                                         $sql = "SELECT * FROM `tbl_subtopic` ";
-                                        $run = mysql_query($sql);
-								         if(mysql_num_rows($run)==0)
+                                        $run = mysqli_query($con,$sql);
+								         if(mysqli_num_rows($run)==0)
 								        {
 								        echo "<p class='alert alert-danger'>"."No Sub topic have been found"."</p>";
 								        }
 								        else                            
 								        {
-                                        while($row=mysql_fetch_array($run)){
+                                        while($row=mysqli_fetch_array($run)){
                                         
                                             $id = $row['sub_Id'];
                                          	$sub_title = $row['sub_title'];

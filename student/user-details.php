@@ -80,8 +80,8 @@ $username=$_SESSION['username'];
 					 		<?php
 include "../functions/connect.php";
 
-$s = mysql_query("SELECT * FROM `tbl_user` WHERE `username`='$username'");
-while($r = mysql_fetch_array($s)){
+$s = mysqli_query($con,"SELECT * FROM `tbl_user` WHERE `username`='$username'");
+while($r = mysqli_fetch_array($s)){
 	$Id = $r['user_Id'];
 	$f = $r['fname'];
 	$m = $r['mname'];
@@ -97,7 +97,7 @@ while($r = mysql_fetch_array($s)){
 extract($_POST);
 if(isset($upt)){
 				
-	$e = mysql_query("UPDATE `tbl_user` SET `fname`='$fname',`mname`='$mname',`lname`='$lname',`dob`='$dob',`gender`='$gender',`course`='$course',`yrlvl`='$yrlvl',`username`='$username',`password`='$password' WHERE `username`='$username'");
+	$e = mysqli_query($con,"UPDATE `tbl_user` SET `fname`='$fname',`mname`='$mname',`lname`='$lname',`dob`='$dob',`gender`='$gender',`course`='$course',`yrlvl`='$yrlvl',`username`='$username',`password`='$password' WHERE `username`='$username'");
 	if($e==true)
                                   {
                                         echo '<script language="javascript">';

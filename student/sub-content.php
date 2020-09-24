@@ -114,14 +114,14 @@ if($_POST){
         require_once "../functions/connect.php";
        
 
-        $sql = mysql_query("SELECT * FROM `tbl_subtopic`  WHERE `sub_Id`=".$_GET["sub_Id"]);
-        if(mysql_num_rows($sql)==0)
+        $sql = mysqli_query($con,"SELECT * FROM `tbl_subtopic`  WHERE `sub_Id`=".$_GET["sub_Id"]);
+        if(mysqli_num_rows($sql)==0)
         {
         echo "<p class='alert alert-danger'>"."No Post have been found"."</p>";
         }
         else                            
         {
-        while($row=mysql_fetch_array($sql)){   
+        while($row=mysqli_fetch_array($sql)){   
         $id = $row['sub_Id'];
         $title = $row['sub_title'];
         $topic = $row['topic_Id'];
@@ -155,9 +155,9 @@ if($_POST){
 
               <?php 
      /*         $postid= $_GET['sub_Id'];
-              $sql = mysql_query("SELECT * from tbl_comment as c join tbl_user as u on c.user_Id=u.user_Id where sub_Id='$postid' order by datetime");
+              $sql = mysqli_query("SELECT * from tbl_comment as c join tbl_user as u on c.user_Id=u.user_Id where sub_Id='$postid' order by datetime");
              
-              while($row=mysql_fetch_assoc($sql)){
+              while($row=mysqli_fetch_assoc($sql)){
                     echo "<label>Comment by: </label> ".$row['fname']." ".$row['lname']."<br>";
                      echo '<label class="pull-right">'.$row['datetime'].'</label>';
                      echo "<p class='well'>".$row['comment']."</p>";

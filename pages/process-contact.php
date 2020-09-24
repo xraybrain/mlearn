@@ -3,7 +3,7 @@ include "../functions/connect.php";
 
 extract($_POST);
 
-$sql =mysql_query("INSERT INTO `tbl_contact`(`name`, `email`, `phone`, `subject`, `message`) VALUES ('$name','$email','$phone','$subject','$message') ");
+$sql =mysqli_query($con, "INSERT INTO `tbl_contact`(`name`, `email`, `phone`, `subject`, `message`) VALUES ('$name','$email','$phone','$subject','$message') ");
 
  if($sql==true)
 {

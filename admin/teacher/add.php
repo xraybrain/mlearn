@@ -12,7 +12,7 @@ $adm_user=$_SESSION['adm_user'];
 <html class="no-js">
     
     <head>
-        <title>ACS E-Learning</title>
+        <title>M-Learning</title>
         <!-- Bootstrap -->
         <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
@@ -71,8 +71,8 @@ $adm_user=$_SESSION['adm_user'];
                         <?php
                                     include '../../functions/connect.php';
 
-                                    $result=mysql_query("SELECT count(*) as total from tbl_teacher");
-                                    $data=mysql_fetch_assoc($result);
+                                    $result=mysqli_query($con,"SELECT count(*) as total from tbl_teacher");
+                                    $data=mysqli_fetch_assoc($result);
                                     $percent = $data['total'];
                                     
                                     ?>
@@ -82,8 +82,8 @@ $adm_user=$_SESSION['adm_user'];
                         <?php
                                     include '../../functions/connect.php';
 
-                                    $result=mysql_query("SELECT count(*) as total from tbl_user");
-                                    $data=mysql_fetch_assoc($result);
+                                    $result=mysqli_query($con, "SELECT count(*) as total from tbl_user");
+                                    $data=mysqli_fetch_assoc($result);
                                     $percent = $data['total'];
                                     
                                     ?>
@@ -94,8 +94,8 @@ $adm_user=$_SESSION['adm_user'];
                           <?php
                                     include '../../functions/connect.php';
 
-                                    $result=mysql_query("SELECT count(*) as total from tbl_category");
-                                    $data=mysql_fetch_assoc($result);
+                                    $result=mysqli_query($con,"SELECT count(*) as total from tbl_category");
+                                    $data=mysqli_fetch_assoc($result);
                                     $percent = $data['total'];
                                     
                                     ?>
@@ -105,8 +105,8 @@ $adm_user=$_SESSION['adm_user'];
                         <?php
                                     include '../../functions/connect.php';
 
-                                    $result=mysql_query("SELECT count(*) as total from tbl_contact");
-                                    $data=mysql_fetch_assoc($result);
+                                    $result=mysqli_query($con,"SELECT count(*) as total from tbl_contact");
+                                    $data=mysqli_fetch_assoc($result);
                                     $percent = $data['total'];
                                     
                                     ?>
@@ -164,20 +164,20 @@ $adm_user=$_SESSION['adm_user'];
 
                     if(isset($add)){
                       $fname = str_replace("'","`",$fname); 
-                      $fname = mysql_real_escape_string($fname);
+                      $fname = mysqli_real_escape_string($con,$fname);
                       
                       $lname = str_replace("'","`",$lname); 
-                      $lname = mysql_real_escape_string($lname); 
+                      $lname = mysqli_real_escape_string($con,$lname); 
                               
                       $username = str_replace("'","`",$username); 
-                      $username = mysql_real_escape_string($username); 
+                      $username = mysqli_real_escape_string($con,$username); 
 
                       $password = str_replace("'","`",$password); 
-                      $password = mysql_real_escape_string($password);
+                      $password = mysqli_real_escape_string($con,$password);
                      // $password = md5($password);
 
                        $sql ="INSERT INTO `tbl_teacher`(`fname`, `mname`, `lname`, `uname`, `pwd`) VALUES ('$fname','$mname','$lname','$username','$password')";
-                       $run = mysql_query($sql);
+                       $run = mysqli_query($con,$sql);
 
                                         if($run==true)
                                   {

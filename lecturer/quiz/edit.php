@@ -69,8 +69,8 @@ $uname=$_SESSION['uname'];
                         <?php
                                     include '../../functions/connect.php';
 
-                                    $result=mysql_query("SELECT count(*) as total from tbl_topic");
-                                    $data=mysql_fetch_assoc($result);
+                                    $result=mysqli_query($con,"SELECT count(*) as total from tbl_topic");
+                                    $data=mysqli_fetch_assoc($result);
                                     $percent = $data['total'];
                                     
                                     ?>
@@ -81,26 +81,26 @@ $uname=$_SESSION['uname'];
                         <?php
                                     include '../../functions/connect.php';
 
-                                    $result=mysql_query("SELECT count(*) as total from tbl_quiz");
-                                    $data=mysql_fetch_assoc($result);
+                                    $result=mysqli_query($con,"SELECT count(*) as total from tbl_quiz");
+                                    $data=mysqli_fetch_assoc($result);
                                     $percent = $data['total'];
                                     
                                     ?>
                             <a href="../quiz/index.php"><span class="badge badge-info pull-right"><?php echo $percent;?></span> Quiz</a>
                         </li>
-                        <!--
+                        
                           <li>
                         <?php
                                     include '../../functions/connect.php';
 
-                                    $result=mysql_query("SELECT count(*) as total from tbl_comment");
-                                    $data=mysql_fetch_assoc($result);
+                                    $result=mysqli_query($con,"SELECT count(*) as total from tbl_comment");
+                                    $data=mysqli_fetch_assoc($result);
                                     $percent = $data['total'];
                                     
                                     ?>
                             <a href="../comment/index.php"><span class="badge badge-info pull-right"><?php echo $percent;?></span> Comment</a>
                         </li>
-                        -->
+                       
                     </ul>
                 </div>
                 
@@ -138,9 +138,9 @@ $uname=$_SESSION['uname'];
              $id = $_GET['quiz_Id'];
                                       
                 $sql = "SELECT * FROM `tbl_quiz` WHERE `quiz_Id`='$id'";
-                $run = mysql_query($sql);
+                $run = mysqli_query($con,$sql);
 
-                while($row=mysql_fetch_array($run))
+                while($row=mysqli_fetch_array($run))
                 {
                     $id = $row['quiz_Id'];
                                                    
@@ -159,7 +159,7 @@ $uname=$_SESSION['uname'];
                 {
                     
                     $sql = "UPDATE `tbl_quiz` SET `question_name`='$question_name',`answer1`='$answer1',`answer2`='$answer2',`answe3`='$answe3',`answer4`='$answer4',`answer`='$answer' WHERE `quiz_Id`='$id'";
-                    $run = mysql_query($sql);
+                    $run = mysqli_query($con,$sql);
                               
                     if($run==true)
                         {

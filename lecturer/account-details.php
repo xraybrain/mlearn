@@ -34,7 +34,7 @@ $uname=$_SESSION['uname'];
                      <span class="icon-bar"></span>
                      <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">Admin Panel</a>
+                    <a class="brand" href="#">Lecturer Panel</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right">
                             <li class="dropdown">
@@ -70,8 +70,8 @@ $uname=$_SESSION['uname'];
                         <?php
                                     include '../functions/connect.php';
 
-                                    $result=mysql_query("SELECT count(*) as total from tbl_topic");
-                                    $data=mysql_fetch_assoc($result);
+                                    $result=mysqli_query($con,"SELECT count(*) as total from tbl_topic");
+                                    $data=mysqli_fetch_assoc($result);
                                     $percent = $data['total'];
                                     
                                     ?>
@@ -82,12 +82,23 @@ $uname=$_SESSION['uname'];
                         <?php
                                     include '../functions/connect.php';
 
-                                    $result=mysql_query("SELECT count(*) as total from tbl_quiz");
-                                    $data=mysql_fetch_assoc($result);
+                                    $result=mysqli_query($con,"SELECT count(*) as total from tbl_quiz");
+                                    $data=mysqli_fetch_assoc($result);
                                     $percent = $data['total'];
                                     
                                     ?>
                             <a href="quiz/index.php"><span class="badge badge-info pull-right"><?php echo $percent;?></span> Quiz</a>
+                        </li>
+                        <li>
+                        <?php
+                                    include '../functions/connect.php';
+
+                                    $result=mysqli_query($con,"SELECT count(*) as total from tbl_comment");
+                                    $data=mysqli_fetch_assoc($result);
+                                    $percent = $data['total'];
+                                    
+                                    ?>
+                            <a href="comment/index.php"><span class="badge badge-info pull-right"><?php echo $percent;?></span> Comment</a>
                         </li>
                      
                     </ul>
@@ -123,8 +134,8 @@ $uname=$_SESSION['uname'];
                              <?php
                             include "../functions/connect.php";
 
-                            $sql = mysql_query("SELECT * FROM `tbl_teacher` WHERE `uname`='$uname'");
-                            while ($run = mysql_fetch_array($sql)) {
+                            $sql = mysqli_query($con,"SELECT * FROM `tbl_teacher` WHERE `uname`='$uname'");
+                            while ($run = mysqli_fetch_array($sql)) {
                                 extract($run);
                                 
                             }
@@ -150,8 +161,8 @@ $uname=$_SESSION['uname'];
                                     if(isset($edit))
                                     {
 
-                    $s = mysql_query("UPDATE `tbl_teacher` SET `fname`='$fname',`mname`='$mname',`lname`='$lname',`uname`='$username',`pwd`='$password' WHERE `uname`='$uname'")
-                                                                    or die(mysql_error()); 
+                    $s = mysqli_query($con,"UPDATE `tbl_teacher` SET `fname`='$fname',`mname`='$mname',`lname`='$lname',`uname`='$username',`pwd`='$password' WHERE `uname`='$uname'")
+                                                                    or die(mysqli_error($con)); 
                                         if($s==true){
                                             echo '<script language="javascript">';
                                             echo 'alert("Successfully Updated")';

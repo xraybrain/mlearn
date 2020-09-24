@@ -36,12 +36,12 @@
 	<div class="panel-body">
 		<h1>Practice what you have learn!</h1>
 
-		<?php $response=mysql_query("select * from tbl_quiz");?>
+		<?php $response=mysqli_query($con,"select * from tbl_quiz");?>
 
 		<form method='post' id='quiz_form' class="well">
 		<?php 
 		$i = 1;
-		while($result=mysql_fetch_array($response)){ ?>
+		while($result=mysqli_fetch_array($response)){ ?>
 		<div id="question_<?php echo $i;?>" class='questions'>
 		<h4 id="question_<?php echo $i;?>"><?php echo $i.".".$result['question_name'];?></h4>
 		<div class='align'>

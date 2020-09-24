@@ -3,7 +3,7 @@
  date_default_timezone_set("Asia/Taipei");
                         $datetime=date("Y-m-d h:i:sa");
    extract($_POST);
-  $sql = mysql_query("INSERT INTO `tbl_topic`(`title`, `content`, `datetime_posted`, `cat_Id`) VALUES ('$title','$content','$datetime','$category')");
+  $sql = mysqli_query($con,"INSERT INTO `tbl_topic`(`title`, `content`, `datetime_posted`, `cat_Id`) VALUES ('$title','$content','$datetime','$category')");
 
   if($sql==true)
       {
