@@ -1,0 +1,59 @@
+@CHARSET "ISO-8859-1";
+
+*{
+margin: 0px;
+padding: 0px;
+/*background-color: #eee;*/
+color: #000;
+}
+
+@font-face{
+font-family: Lobster;
+src: url('Lobster.otf');
+}
+h1{
+text-align:center;
+font-family: Lobster;
+font-size: 35px;
+margin-top: 30px;
+}
+#title{
+font-family: Lobster;
+}
+.align{
+margin-left: 25px;
+}
+#result{
+width: 50%;
+margin: 50px auto;
+display: none;
+}
+.mx-auto {
+	float: none;
+	margin: 10px auto;
+}
+#quiz_form{
+  margin: 50px auto;
+}
+.butt {
+    background: none repeat scroll 0 0 orange;
+    border: 2px solid orange;
+    height: 40px;
+    margin: 20px 0 0 50px;
+    width: 170px;
+}
+.hide{
+display: none;
+}
+#answer{
+text-align: center;
+font-weight: bold;
+}
+.text-center{
+	text-align: center;
+}
+.highlight {
+ color : #CCFFCC;
+ font-size: 20px;
+}
+

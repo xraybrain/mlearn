@@ -1,0 +1,17 @@
+{
+    "name": "jude-johnb/mlearn",
+    "config": {
+        "platform": {
+            "php": "5.3.5"
+        }
+    },
+    "description": "a learning app",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "xraybrain",
+            "email": "xraybrain@gmail.com"
+        }
+    ],
+    "require": {}
+}
