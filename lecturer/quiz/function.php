@@ -5,7 +5,7 @@ function dbcon(){
 	$host = "us-cdbr-east-02.cleardb.com";
 	$user = "b37a8abc52df42";
 	$password = "017b786c";
-	$db = "heroku_008a42196f61275	";
+	$db = "heroku_008a42196f61275";
 	
 	global $con;
 	$con = mysqli_connect($host,$user,$pwd) or die ("ERROR Connecting to Database");
