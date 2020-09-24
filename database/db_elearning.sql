@@ -1,199 +1,252 @@
-﻿# Host: localhost  (Version: 5.6.16)
-# Date: 2015-06-03 23:46:52
-# Generator: MySQL-Front 5.3  (Build 4.122)
+﻿-- phpMyAdmin SQL Dump
+-- version 2.11.4
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Sep 24, 2020 at 09:50 PM
+-- Server version: 5.0.51
+-- PHP Version: 5.2.5
 
-/*!40101 SET NAMES utf8 */;
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
-#
-# Structure for table "tbl_admin"
-#
+--
+-- Database: `db_elearning`
+--
 
-CREATE TABLE `tbl_admin` (
-  `adm_Id` int(11) NOT NULL AUTO_INCREMENT,
-  `adm_user` varchar(255) DEFAULT NULL,
-  `adm_pwd` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`adm_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+-- --------------------------------------------------------
 
-#
-# Data for table "tbl_admin"
-#
+--
+-- Table structure for table `tbl_admin`
+--
 
-INSERT INTO `tbl_admin` VALUES (1,'admin','21232f297a57a5a743894a0e4a801fc3');
+CREATE TABLE IF NOT EXISTS `tbl_admin` (
+  `adm_Id` int(11) NOT NULL auto_increment,
+  `adm_user` varchar(255) default NULL,
+  `adm_pwd` varchar(255) default NULL,
+  PRIMARY KEY  (`adm_Id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
-#
-# Structure for table "tbl_answer"
-#
+--
+-- Dumping data for table `tbl_admin`
+--
 
-CREATE TABLE `tbl_answer` (
-  `ans_Id` int(11) NOT NULL AUTO_INCREMENT,
-  `answer` varchar(255) DEFAULT NULL,
-  `quiz_Id` int(11) DEFAULT NULL,
-  `user_Id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ans_Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `tbl_admin` (`adm_Id`, `adm_user`, `adm_pwd`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3');
 
-#
-# Data for table "tbl_answer"
-#
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_answer`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_answer` (
+  `ans_Id` int(11) NOT NULL auto_increment,
+  `answer` varchar(255) default NULL,
+  `quiz_Id` int(11) default NULL,
+  `user_Id` int(11) default NULL,
+  PRIMARY KEY  (`ans_Id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `tbl_answer`
+--
 
 
-#
-# Structure for table "tbl_category"
-#
+-- --------------------------------------------------------
 
-CREATE TABLE `tbl_category` (
-  `cat_Id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
+--
+-- Table structure for table `tbl_category`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_category` (
+  `cat_Id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) default NULL,
   `description` text,
-  `image` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`cat_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `image` varchar(255) default NULL,
+  PRIMARY KEY  (`cat_Id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
-#
-# Data for table "tbl_category"
-#
+--
+-- Dumping data for table `tbl_category`
+--
 
-INSERT INTO `tbl_category` VALUES (4,'Programming','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.',NULL);
+INSERT INTO `tbl_category` (`cat_Id`, `name`, `description`, `image`) VALUES
+(6, 'Web Development', 'Web development is the work involved in developing a Web site for the Internet or an intranet. Web development can range from developing a simple single static page of plain text to complex Web-based Internet applications, electronic businesses, and social network services.', NULL),
+(7, 'Hardware maintenance', 'Computer hardware maintenance involves taking care of the computer''s physical components, such as its keyboard, hard drive and internal CD or DVD drives. Cleaning the computer, keeping its fans free from dust, and defragmenting its hard drives regularly are all parts of a computer hardware maintenance program.         \r\n                                ', NULL),
+(8, 'Project management', '                Project management is the process of leading the work of a team to achieve goals and meet success criteria at a specified time. The primary challenge of project management is to achieve all of the project goals within the given constraints.                    \r\n                                ', NULL),
+(9, 'Human - computer interaction', 'Human - computer interaction (HCI) studies the design and use of computer technology, focused on the interfaces between people (users) and computers. Researchers in the field of HCI observe the ways in which humans interact with computers and design technologies that let humans interact with computers in novel ways.', NULL),
+(10, 'Data Structure and Algorithm', 'Data Structure is a way of collecting and organising data in such a way that we can perform operations on these data in an effective way. Data Structures is about rendering data elements in terms of some relationship, for better organization and storage.\r\n\r\nAn algorithm is a finite set of instructions or logic, written in order, to accomplish a certain predefined task. Algorithm is not the complete code or program, it is just the core logic(solution) of a problem, which can be expressed either as an informal high level description as pseudocode or using a flowchart.', NULL);
 
-#
-# Structure for table "tbl_comment"
-#
+-- --------------------------------------------------------
 
-CREATE TABLE `tbl_comment` (
-  `comment_Id` int(11) NOT NULL AUTO_INCREMENT,
+--
+-- Table structure for table `tbl_comment`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_comment` (
+  `comment_Id` int(11) NOT NULL auto_increment,
   `comment` text,
-  `datetime` datetime DEFAULT NULL,
-  `sub_Id` int(11) DEFAULT NULL,
-  `user_Id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`comment_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `datetime` datetime default NULL,
+  `sub_Id` int(11) default NULL,
+  `user_Id` int(11) default NULL,
+  PRIMARY KEY  (`comment_Id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
-#
-# Data for table "tbl_comment"
-#
+--
+-- Dumping data for table `tbl_comment`
+--
 
-INSERT INTO `tbl_comment` VALUES (1,'','2015-06-01 07:48:26',0,0),(2,'','2015-06-01 07:48:56',0,0);
+INSERT INTO `tbl_comment` (`comment_Id`, `comment`, `datetime`, `sub_Id`, `user_Id`) VALUES
+(1, '', '2015-06-01 07:48:26', 0, 0),
+(2, '', '2015-06-01 07:48:56', 0, 0);
 
-#
-# Structure for table "tbl_contact"
-#
+-- --------------------------------------------------------
 
-CREATE TABLE `tbl_contact` (
-  `contact_Id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `phone` int(1) DEFAULT NULL,
-  `subject` varchar(255) DEFAULT NULL,
+--
+-- Table structure for table `tbl_contact`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_contact` (
+  `contact_Id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) default NULL,
+  `email` varchar(255) default NULL,
+  `phone` int(1) default NULL,
+  `subject` varchar(255) default NULL,
   `message` text,
-  PRIMARY KEY (`contact_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  PRIMARY KEY  (`contact_Id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
-#
-# Data for table "tbl_contact"
-#
+--
+-- Dumping data for table `tbl_contact`
+--
 
-INSERT INTO `tbl_contact` VALUES (2,'asd','sample@gmail.com',343,'sa','sadas'),(3,'asd','asdh@yahoo.com',324,'asd','asdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'),(4,'Sample','asdh@yahoo.com',24,'asd','asd');
 
-#
-# Structure for table "tbl_quiz"
-#
+-- --------------------------------------------------------
 
-CREATE TABLE `tbl_quiz` (
-  `quiz_Id` int(11) NOT NULL AUTO_INCREMENT,
+--
+-- Table structure for table `tbl_quiz`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_quiz` (
+  `quiz_Id` int(11) NOT NULL auto_increment,
   `question_name` text,
-  `answer1` varchar(255) DEFAULT '',
-  `answer2` varchar(255) DEFAULT NULL,
-  `answe3` varchar(255) DEFAULT NULL,
-  `answer4` varchar(255) DEFAULT NULL,
-  `answer` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`quiz_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  `answer1` varchar(255) default '',
+  `answer2` varchar(255) default NULL,
+  `answe3` varchar(255) default NULL,
+  `answer4` varchar(255) default NULL,
+  `answer` varchar(255) default NULL,
+  PRIMARY KEY  (`quiz_Id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
 
-#
-# Data for table "tbl_quiz"
-#
+--
+-- Dumping data for table `tbl_quiz`
+--
 
-INSERT INTO `tbl_quiz` VALUES (1,'<pre>\r\n<span style=\"color:rgb(0, 136, 0)\">What does PHP stand for?</span></pre>\r\n','4','','','',''),(2,'<pre>\r\n<span style=\"color:rgb(0, 136, 0)\">What does PHP stand for?</span></pre>\r\n','Personal Home Page','Personal Hypertext Processor','Private Home Page','PHP: Hypertext Preprocessor','4'),(3,'<p>asd</p>\r\n','asd','asd','asd','asd','3'),(4,'<p>asd</p>\r\n','45','45','45','452','2'),(5,'<p>asd</p>\r\n','gfgf','fg','fg','fg','2');
+INSERT INTO `tbl_quiz` (`quiz_Id`, `question_name`, `answer1`, `answer2`, `answe3`, `answer4`, `answer`) VALUES
+(10, '<p>The following tools are used in Frontend web development except one</p>\r\n', 'HTML', 'CSS', 'Javascript', 'Java', 'Java'),
+(9, '<p>The following are used in <strong>Frontend Development</strong> except one.</p>\r\n', 'React.js', 'Angular.js', 'Vue.js', 'Python', 'Python'),
+(8, '<p>What is the full meaning of CSS?</p>\r\n', 'Cascading Style Sheet', 'Cascading Sheet Style', 'Canvas Style Sheet', 'Cascading Style Sheeting', 'Cascading Style Sheet'),
+(7, '<p>What is the full meaning of HTML?</p>\r\n', 'Hyper Text Markup Language', 'Hyper Text Markup Link', 'Hyper Text Media Language', 'Hyper Tool Markup Language', 'Hyper Text Markup Language'),
+(20, '<p><strong>What is the correct HTML tag for inserting a line break?</strong></p>\r\n', 'br', 'lb', 'break', 'hr', 'br'),
+(21, '<p><strong>Which of these tags are all tags?</strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table>\r\n</table>\r\n', 'table head tfoot', 'table tr td', 'thead body tr', 'table tr tt', 'table tr td'),
+(22, '<p><strong>What is the correct HTML for inserting an image?</strong></p>\r\n', 'img alt=', 'img src=', 'image src=', 'img href=', 'img src='),
+(18, '<p><strong>What is the correct HTML for inserting an image?</strong></p>\r\n', 'img alt=', 'img src=', 'image src=', 'img href=', 'img src='),
+(17, '<p><strong>How can you make a numbered list?</strong></p>\r\n', 'ol', 'ul', 'dl', 'list', 'ol'),
+(19, '<p><strong>Choose the correct HTML tag for the largest heading</strong></p>\r\n', 'heading', 'h6', 'head', 'h1', 'h1');
 
-#
-# Structure for table "tbl_subtopic"
-#
+-- --------------------------------------------------------
 
-CREATE TABLE `tbl_subtopic` (
-  `sub_Id` int(11) NOT NULL AUTO_INCREMENT,
-  `sub_title` varchar(255) DEFAULT NULL,
+--
+-- Table structure for table `tbl_subtopic`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_subtopic` (
+  `sub_Id` int(11) NOT NULL auto_increment,
+  `sub_title` varchar(255) default NULL,
   `sub_content` text,
-  `datetime` datetime DEFAULT NULL,
-  `topic_Id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`sub_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `datetime` datetime default NULL,
+  `topic_Id` int(11) default NULL,
+  PRIMARY KEY  (`sub_Id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
-#
-# Data for table "tbl_subtopic"
-#
+--
+-- Dumping data for table `tbl_subtopic`
+--
 
-INSERT INTO `tbl_subtopic` VALUES (1,'sample','<p><iframe src=\"https://www.youtube.com/embed/zg-J7jVNix0\" width=\"560\" height=\"315\" frameborder=\"0\" allowfullscreen=\"allowfullscreen\"></iframe></p>\r\n<p>asdasd</p>','2015-05-31 09:46:27',11),(2,'Lorem ipsum','<h3>sample</h3>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod<br />\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,<br />\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo<br />\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse<br />\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non<br />\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n\r\n<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</div>\r\n\r\n<div>tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</div>\r\n\r\n<div>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</div>\r\n\r\n<div>consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</div>\r\n\r\n<div>cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</div>\r\n\r\n<div>proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<div><a href=\"http://iwantsourcecodes.com\" target=\"_blank\">http://iwantsourcecodes.com</a></div>\r\n','2015-05-31 06:00:53',11);
+INSERT INTO `tbl_subtopic` (`sub_Id`, `sub_title`, `sub_content`, `datetime`, `topic_Id`) VALUES
+(3, 'What is HTML?', '<p>HTML stands for&nbsp;Hyper&nbsp;Text&nbsp;Markup&nbsp;Language</p>\r\n\r\n<p>HTML is the&nbsp;standard markup&nbsp;language for Web pages</p>\r\n\r\n<p>HTML&nbsp;elements&nbsp;are the building blocks of HTML pages</p>\r\n\r\n<p>HTML elements are represented by&nbsp;&lt;&gt; tags</p>\r\n\r\n<h2>HTML Elements</h2>\r\n\r\n<p>An HTML element is a&nbsp;start&nbsp;tag and an&nbsp;end&nbsp;tag with content in between:</p>\r\n\r\n<p><span style="color:brown; font-family:consolas,courier new; font-size:24px"><span style="color:mediumblue">&lt;</span>h1<span style="color:mediumblue">&gt;</span></span><span style="background-color:rgb(255, 255, 204); color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:24px">This is a Heading</span><span style="color:brown; font-family:consolas,courier new; font-size:24px"><span style="color:mediumblue">&lt;</span>/h1<span style="color:mediumblue">&gt;</span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table class="notranslate w3-table-all" style="border-collapse:collapse; border-spacing:0px; border:1px solid rgb(204, 204, 204); box-sizing:inherit; color:rgb(0, 0, 0); font-family:verdana,sans-serif; font-size:15px; margin:20px 0px; width:804px">\r\n  <tbody>\r\n   <tr>\r\n      <th style="text-align:left; vertical-align:top">Start tag</th>\r\n      <th style="text-align:left; vertical-align:top">Element content</th>\r\n      <th style="text-align:left; vertical-align:top">End tag</th>\r\n    </tr>\r\n   <tr>\r\n      <td style="vertical-align:top">&lt;h1&gt;</td>\r\n      <td style="vertical-align:top">This is a Heading</td>\r\n     <td style="vertical-align:top">&lt;/h1&gt;</td>\r\n   </tr>\r\n   <tr>\r\n      <td style="vertical-align:top">&lt;p&gt;</td>\r\n     <td style="vertical-align:top">This is paragraph.</td>\r\n      <td style="vertical-align:top">&lt;/p&gt;</td>\r\n    </tr>\r\n </tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h2>HTML Attributes</h2>\r\n\r\n<ul>\r\n <li>HTML elements can have&nbsp;attributes</li>\r\n <li>Attributes provide&nbsp;additional information&nbsp;about the element</li>\r\n  <li>Attributes come in name/value pairs like&nbsp;charset=&quot;utf-8&quot;</li>\r\n</ul>\r\n\r\n<h2>A Simple HTML Document</h2>\r\n\r\n<p><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>!DOCTYPE<span style="color:red">&nbsp;html</span><span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>html<span style="color:red">&nbsp;lang<span style="color:mediumblue">=&quot;en&quot;</span></span><span style="color:mediumblue">&gt;</span></span><br />\r\n<br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>meta<span style="color:red">&nbsp;charset<span style="color:mediumblue">=&quot;utf-8&quot;</span></span><span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>title<span style="color:mediumblue">&gt;</span></span><span style="background-color:rgb(255, 255, 255); font-family:consolas,courier new; font-size:15px">Page Title</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/title<span style="color:mediumblue">&gt;</span></span><br />\r\n<br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>body<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="background-color:rgb(255, 255, 255); font-family:consolas,courier new; font-size:15px">&nbsp;&nbsp;&nbsp;</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>h1<span style="color:mediumblue">&gt;</span></span><span style="background-color:rgb(255, 255, 255); font-family:consolas,courier new; font-size:15px">This is a Heading</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/h1<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="background-color:rgb(255, 255, 255); font-family:consolas,courier new; font-size:15px">&nbsp;&nbsp;&nbsp;</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>p<span style="color:mediumblue">&gt;</span></span><span style="background-color:rgb(255, 255, 255); font-family:consolas,courier new; font-size:15px">This is a paragraph.</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/p<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="background-color:rgb(255, 255, 255); font-family:consolas,courier new; font-size:15px">&nbsp;&nbsp;&nbsp;</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>p<span style="color:mediumblue">&gt;</span></span><span style="background-color:rgb(255, 255, 255); font-family:consolas,courier new; font-size:15px">This is another paragraph.</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/p<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/body<span style="color:mediumblue">&gt;</span></span><br />\r\n<br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/html<span style="color:mediumblue">&gt;</span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3>Example Explained</h3>\r\n\r\n<p>HTML elements are the building blocks of HTML pages.</p>\r\n\r\n<ul>\r\n  <li>The&nbsp;<code>&lt;!DOCTYPE html&gt;</code>&nbsp;declaration defines this document to be HTML5</li>\r\n <li>The&nbsp;<code>&lt;html&gt;</code>&nbsp;element is the root element of an HTML page</li>\r\n  <li>The&nbsp;<code>lang</code>&nbsp;attribute&nbsp; defines the language of the document</li>\r\n <li>The&nbsp;<code>&lt;meta&gt;</code>&nbsp;element contains meta information about the document</li>\r\n <li>The&nbsp;<code>charset</code>&nbsp;attribute defines the character set used in the document</li>\r\n  <li>The&nbsp;<code>&lt;title&gt;</code>&nbsp;element specifies a title for the document</li>\r\n  <li>The&nbsp;<code>&lt;body&gt;</code>&nbsp;element contains the visible page content</li>\r\n  <li>The&nbsp;<code>&lt;h1&gt;</code>&nbsp;element defines a large heading</li>\r\n  <li>The&nbsp;<code>&lt;p&gt;</code>&nbsp;element defines a paragraph</li>\r\n</ul>\r\n\r\n<h2>HTML Documents</h2>\r\n\r\n<p>All HTML documents must start with a document type declaration:&nbsp;<code>&lt;!DOCTYPE html&gt;</code>.</p>\r\n\r\n<p>The HTML document itself begins with&nbsp;<code>&lt;html&gt;</code>&nbsp;and ends with&nbsp;<code>&lt;/html&gt;</code>.</p>\r\n\r\n<p>The visible part of the HTML document is between&nbsp;<code>&lt;body&gt;</code>&nbsp;and&nbsp;<code>&lt;/body&gt;</code>.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h2>HTML Document Structure</h2>\r\n\r\n<p>Below is a visualization of an HTML document (an HTML Page):</p>\r\n\r\n<p><span style="background-color:rgb(221, 221, 221); font-family:verdana,sans-serif; font-size:15px">&lt;html&gt;</span></p>\r\n\r\n<div style="box-sizing: inherit; font-family: Verdana, sans-serif; font-size: 15px; width: 709.297px; border: 1px solid grey; padding: 3px; margin: 20px;">&lt;head&gt;\r\n<div style="box-sizing: inherit; width: 631.156px; border: 1px solid grey; padding: 5px; margin: 20px;">&lt;title&gt;Page title&lt;/title&gt;</div>\r\n&lt;/head&gt;</div>\r\n\r\n<div style="box-sizing: inherit; font-family: Verdana, sans-serif; font-size: 15px; background-color: rgb(221, 221, 221); width: 709.297px; border: 1px solid grey; padding: 3px; margin: 20px;">&lt;body&gt;\r\n<div style="box-sizing: inherit; width: 631.156px; border: 1px solid grey; padding: 3px; margin: 20px; background-color: rgb(255, 255, 255);">\r\n<div style="box-sizing: inherit; width: 560.828px; border: 1px solid grey; padding: 5px; margin: 20px;">&lt;h1&gt;This is a heading&lt;/h1&gt;</div>\r\n\r\n<div style="box-sizing: inherit; width: 560.828px; border: 1px solid grey; padding: 5px; margin: 20px;">&lt;p&gt;This is a paragraph.&lt;/p&gt;</div>\r\n\r\n<div style="box-sizing: inherit; width: 560.828px; border: 1px solid grey; padding: 5px; margin: 20px;">&lt;p&gt;This is another paragraph.&lt;/p&gt;</div>\r\n</div>\r\n&lt;/body&gt;</div>\r\n\r\n<p><span style="background-color:rgb(221, 221, 221); font-family:verdana,sans-serif; font-size:15px">&lt;/html&gt;</span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h2>HTML Headings</h2>\r\n\r\n<p>HTML headings are defined with&nbsp;<code>&lt;h1&gt;</code>&nbsp;to&nbsp;<code>&lt;h6&gt;</code>&nbsp;tags.</p>\r\n\r\n<p><code>&lt;h1&gt;</code>&nbsp;defines the most important heading.&nbsp;<code>&lt;h6&gt;</code>&nbsp;defines the least important heading:&nbsp;</p>\r\n\r\n<p>Examples</p>\r\n\r\n<p><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>h1<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">This is heading 1</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/h1<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>h2<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">This is heading 2</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/h2<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>h3<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">This is heading 3</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/h3<span style="color:mediumblue">&gt;</span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h2>HTML Paragraphs</h2>\r\n\r\n<p>HTML paragraphs are defined with&nbsp;<code>&lt;p&gt;</code>&nbsp;tags:</p>\r\n\r\n<p><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>p<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">This is a paragraph.</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/p<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>p<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">This is another paragraph.</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/p<span style="color:mediumblue">&gt;</span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h2>HTML Links</h2>\r\n\r\n<p>HTML links are defined with&nbsp;<code>&lt;a&gt;</code>&nbsp;tags:</p>\r\n\r\n<p><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>a<span style="color:red">&nbsp;href<span style="color:mediumblue">=&quot;https://www.w3schools.com&quot;</span></span><span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">This is a link</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/a<span style="color:mediumblue">&gt;</span></span></p>\r\n\r\n<p><span style="color:rgb(0, 0, 0); font-family:verdana,sans-serif; font-size:15px">The link&#39;s destination is specified in the&nbsp;</span><code>href</code><span style="color:rgb(0, 0, 0); font-family:verdana,sans-serif; font-size:15px">&nbsp;attribute.&nbsp;</span></p>\r\n\r\n<h2>HTML Images</h2>\r\n\r\n<p>HTML images are defined with&nbsp;<code>&lt;img&gt;</code>&nbsp;tags.</p>\r\n\r\n<p>The source file (<code>src</code>), alternative text (<code>alt</code>),&nbsp;<code>width</code>, and&nbsp;<code>height</code>&nbsp;are provided as attributes:</p>\r\n\r\n<p><span style="color:mediumblue; font-family:consolas,courier new; font-size:15px">&lt;</span><span style="color:rgb(165, 42, 42); font-family:consolas,courier new; font-size:15px">img</span><span style="color:red; font-family:consolas,courier new; font-size:15px">&nbsp;src<span style="color:mediumblue">=&quot;img_w3schools.jpg&quot;</span>&nbsp;alt<span style="color:mediumblue">=&quot;W3Schools&quot;</span>&nbsp;style<span style="color:mediumblue">=&quot;width:120px;height:150px&quot;</span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h2>HTML Buttons</h2>\r\n\r\n<p>HTML buttons are defined with&nbsp;<code>&lt;button&gt;</code>&nbsp;tags:</p>\r\n\r\n<p><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>button<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">Click me</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/button<span style="color:mediumblue">&gt;</span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h2>HTML Lists</h2>\r\n\r\n<p>HTML lists are defined with&nbsp;<code>&lt;ul&gt;</code>&nbsp;(unordered/bullet list) or&nbsp;<code>&lt;ol&gt;</code>&nbsp;(ordered/numbered list) tags, followed by&nbsp;<code>&lt;li&gt;</code>&nbsp;tags (list items):</p>\r\n\r\n<p><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>ul<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">&nbsp;&nbsp;</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>li<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">Coffee</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/li<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">&nbsp;&nbsp;</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>li<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">Tea</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/li<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">&nbsp;&nbsp;</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>li<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">Milk</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/li<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/ul<span style="color:mediumblue">&gt;</span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h2>HTML Tables</h2>\r\n\r\n<p>An HTML table is defined with a&nbsp;<code>&lt;table&gt;</code>&nbsp;tag.</p>\r\n\r\n<p>Table rows are defined with&nbsp;<code>&lt;tr&gt;</code>&nbsp;tags.</p>\r\n\r\n<p>Table headers are defined with&nbsp;<code>&lt;th&gt;</code>&nbsp;tags. (bold and centered by default).</p>\r\n\r\n<p>Table cells (data) are defined with&nbsp;<code>&lt;td&gt;</code>&nbsp;tags.</p>\r\n\r\n<p><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>table<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">&nbsp;&nbsp;</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>tr<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>th<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">Firstname</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/th<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>th<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">Lastname</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/th<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>th<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">Age</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/th<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">&nbsp;&nbsp;</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/tr<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">&nbsp;&nbsp;</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>tr<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">&nbsp; &nbsp;&nbsp;</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>td<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">Jill</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/td<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>td<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">Smith</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/td<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>td<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">50</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/td<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">&nbsp;&nbsp;</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/tr<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">&nbsp;&nbsp;</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>tr<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>td<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">Eve</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/td<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>td<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">Jackson</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/td<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>td<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">94</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/td<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">&nbsp;&nbsp;</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/tr<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/table<span style="color:mediumblue">&gt;</span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h2>Programming HTML</h2>\r\n\r\n<p>Every HTML element can have&nbsp;attributes.</p>\r\n\r\n<p>For web development and programming, the most important attributes are&nbsp;id&nbsp;and&nbsp;class.&nbsp;These attributes are often used to address program based web page manipulations.</p>\r\n\r\n<table class="w3-table-all" style="border-collapse:collapse; border-spacing:0px; border:1px solid rgb(204, 204, 204); box-sizing:inherit; color:rgb(0, 0, 0); font-family:verdana,sans-serif; font-size:15px; margin:20px 0px; width:804px">\r\n <tbody>\r\n   <tr>\r\n      <td style="vertical-align:top">id</td>\r\n      <td style="vertical-align:top">&lt;table&nbsp;id=&quot;table01&quot;</td>\r\n   </tr>\r\n   <tr>\r\n      <td style="vertical-align:top">class</td>\r\n     <td style="vertical-align:top">&lt;p&nbsp;class=&quot;normal&quot;&gt;</td>\r\n   </tr>\r\n   <tr>\r\n      <td style="vertical-align:top">style</td>\r\n     <td style="vertical-align:top">&lt;p&nbsp;style=&quot;font-size:16px&quot;&gt;</td>\r\n   </tr>\r\n   <tr>\r\n      <td style="vertical-align:top">data-</td>\r\n     <td style="vertical-align:top">&lt;div&nbsp;data-id=&quot;500&quot;&gt;</td>\r\n    </tr>\r\n   <tr>\r\n      <td style="vertical-align:top">onclick</td>\r\n     <td style="vertical-align:top">&lt;input&nbsp;onclick=&quot;myFunction()&quot;&gt;</td>\r\n   </tr>\r\n   <tr>\r\n      <td style="vertical-align:top">onmouseover</td>\r\n     <td style="vertical-align:top">&lt;a&nbsp;onmouseover=&quot;this.setAttribute(&#39;style&#39;,&#39;color:red&#39;)&quot;&gt;</td>\r\n   </tr>\r\n </tbody>\r\n</table>\r\n', '2020-09-22 09:25:39', 14);
 
-#
-# Structure for table "tbl_teacher"
-#
+-- --------------------------------------------------------
 
-CREATE TABLE `tbl_teacher` (
-  `teacher_Id` int(11) NOT NULL AUTO_INCREMENT,
-  `fname` varchar(255) DEFAULT NULL,
-  `mname` varchar(255) DEFAULT NULL,
-  `lname` varchar(255) DEFAULT NULL,
-  `uname` varchar(255) DEFAULT NULL,
-  `pwd` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`teacher_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+--
+-- Table structure for table `tbl_teacher`
+--
 
-#
-# Data for table "tbl_teacher"
-#
+CREATE TABLE IF NOT EXISTS `tbl_teacher` (
+  `teacher_Id` int(11) NOT NULL auto_increment,
+  `fname` varchar(255) default NULL,
+  `mname` varchar(255) default NULL,
+  `lname` varchar(255) default NULL,
+  `uname` varchar(255) default NULL,
+  `pwd` varchar(255) default NULL,
+  PRIMARY KEY  (`teacher_Id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
-INSERT INTO `tbl_teacher` VALUES (1,'sample','sample','sample','sample','sample'),(7,'lorems','lorem','lorem','lorem','lorem');
+--
+-- Dumping data for table `tbl_teacher`
+--
 
-#
-# Structure for table "tbl_topic"
-#
+INSERT INTO `tbl_teacher` (`teacher_Id`, `fname`, `mname`, `lname`, `uname`, `pwd`) VALUES
+(8, 'brain', 'j', 'hill', 'brain', '1234'),
+(9, 'fabian', 'c.', 'ukaegbu', 'fabian', '1234');
 
-CREATE TABLE `tbl_topic` (
-  `topic_Id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) DEFAULT NULL,
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_topic`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_topic` (
+  `topic_Id` int(11) NOT NULL auto_increment,
+  `title` varchar(255) default NULL,
   `content` text,
-  `datetime_posted` timestamp NULL DEFAULT NULL,
-  `cat_Id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`topic_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+  `datetime_posted` timestamp NULL default NULL,
+  `cat_Id` int(11) default NULL,
+  PRIMARY KEY  (`topic_Id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
-#
-# Data for table "tbl_topic"
-#
+--
+-- Dumping data for table `tbl_topic`
+--
 
-INSERT INTO `tbl_topic` VALUES (11,'samples','<p><iframe src=\"https://www.youtube.com/embed/KmCkQEkeVn8\" width=\"560\" height=\"315\" frameborder=\"0\" allowfullscreen=\"allowfullscreen\"></iframe></p>\r\n<p>edited</p>','2015-05-16 10:10:49',3),(13,'sample','<p>sample</p>\r\n','2015-05-30 08:37:01',4);
+INSERT INTO `tbl_topic` (`topic_Id`, `title`, `content`, `datetime_posted`, `cat_Id`) VALUES
+(14, 'Learn the Basics', '<p>Every&nbsp;Web Developer&nbsp;must have a basic understanding of&nbsp;HTML,&nbsp;CSS, and&nbsp;JavaScript. Responsive Web Design&nbsp;is used in all types of modern web development. ECMAScript 5&nbsp;(JavaScript 5) is supported in all modern browsers. Take a good look at it, especially the new array functions. When you feel comfortable with&nbsp;HTML&nbsp;and&nbsp;CSS, it is time to dig deeper. You should learn how to use&nbsp;Maps,&nbsp;Fonts&nbsp;and&nbsp;Icons&nbsp;in HTML. On the&nbsp;JavaScript&nbsp;side, you should learn how to access the&nbsp;HTML DOM. You should also learn how to use&nbsp;AJAX&nbsp;and&nbsp;JSON&nbsp;for making server requests.&nbsp;</p>\r\n\r\n<p>Now it is time to look at some&nbsp;Frameworks. On the&nbsp;CSS&nbsp;side you should choose a framework for reponsive web design:</p>\r\n\r\n<p>Bootstrap&nbsp;&nbsp;/&nbsp;&nbsp;Material Design&nbsp;&nbsp;/&nbsp;&nbsp;W3.CSS On the&nbsp;JavaScript&nbsp;side you should learn at least one modern framework: React.js&nbsp;&nbsp;/&nbsp;&nbsp;Angular.js&nbsp;&nbsp;/&nbsp;&nbsp;Vue.js&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;W3.JS Maybe the popularity of&nbsp;jQuery&nbsp;has passed the top, but it is still the most used JavaScript framework.</p>\r\n\r\n<p><img alt="Roadmap" src="https://www.w3schools.com/whatis/img_frontend.jpg" /></p>\r\n\r\n<p>&nbsp;</p>\r\n', '2020-09-22 09:12:15', 6),
+(15, 'What is HTTP?', '<p><strong>HTTP</strong>&nbsp;stands for&nbsp;Hyper&nbsp;Text&nbsp;Transfer&nbsp;Protocol, WWW&nbsp;is about communication between web&nbsp;clients&nbsp;and&nbsp;servers, Communication between client computers and web servers is done by sending&nbsp;<strong>HTTP</strong> Requests&nbsp;and receiving&nbsp;<strong>HTTP</strong> Responses.</p>\r\n\r\n<h2>World Wide Web Communication</h2>\r\n\r\n<p>The World Wide Web is about communication between web&nbsp;clients&nbsp;and web&nbsp;servers. Clients&nbsp;are often browsers (Chrome, Edge, Safari), but they can be any type of program or device. Servers&nbsp;are most often computers in the cloud.</p>\r\n\r\n<h2>HTTP Request / Response</h2>\r\n\r\n<p>Communication between clients and servers is done by&nbsp;requests&nbsp;and&nbsp;responses:</p>\r\n\r\n<ol>\r\n  <li>A client (a browser) sends an&nbsp;HTTP request&nbsp;to the web</li>\r\n  <li>An web server receives the request</li>\r\n <li>The server runs an application to process the request</li>\r\n  <li>The server returns an&nbsp;HTTP response&nbsp;(output) to the browser</li>\r\n  <li>The client (the browser) receives the response</li>\r\n</ol>\r\n\r\n<h2>The HTTP Request Circle</h2>\r\n\r\n<p>A typical HTTP request / response circle:</p>\r\n\r\n<ol>\r\n  <li>The browser requests an HTML page. The server returns an HTML file.</li>\r\n  <li>The browser requests a style sheet. The server returns a CSS file.</li>\r\n <li>The browser requests an JPG image. The server returns a JPG file.</li>\r\n  <li>The browser requests JavaScript code. The server returns a JS file</li>\r\n <li>The browser requests data. The server returns data (in XML or JSON).</li>\r\n</ol>\r\n\r\n<h2>XHR - XML Http Request</h2>\r\n\r\n<p>All browsers have a built-in&nbsp;XMLHttpRequest Object (XHR).</p>\r\n\r\n<p>XHR is a JavaScript object that is used to transfer data between a web browser and a web server.</p>\r\n\r\n<p>XHR is often used to request and recieve data for the purpose of modifying a web page.</p>\r\n\r\n<p>Despite the XML and Http in the name, XHR is used with other protocols than HTTP, and the data can be of many different types like&nbsp;<a href="https://www.w3schools.com/whatis/whatis_html.asp" style="box-sizing: inherit; background-color: transparent; color: inherit;">HTML</a>,&nbsp;<a href="https://www.w3schools.com/whatis/whatis_css.asp" style="box-sizing: inherit; background-color: transparent; color: inherit;">CSS</a>,&nbsp;<a href="https://www.w3schools.com/whatis/whatis_xml.asp" style="box-sizing: inherit; background-color: transparent; color: inherit;">XML</a>,&nbsp;<a href="https://www.w3schools.com/whatis/whatis_json.asp" style="box-sizing: inherit; background-color: transparent; color: inherit;">JSON</a>, and plain text.</p>\r\n\r\n<p>The XHR Object is a&nbsp;Web Developers Dream, because you can:</p>\r\n\r\n<ul>\r\n <li>Update a web page without reloading the page</li>\r\n <li>Request data from a server - after the page has loaded</li>\r\n <li>Receive data from a server - after the page has loaded</li>\r\n <li>Send data to a server - in the background</li>\r\n</ul>\r\n\r\n<p>The XHR Object is the underlying concept of&nbsp;<a href="https://www.w3schools.com/whatis/whatis_ajax.asp" style="box-sizing: inherit; background-color: transparent; color: inherit;">AJAX</a>&nbsp;and&nbsp;<a href="https://www.w3schools.com/whatis/whatis_json.asp" style="box-sizing: inherit; background-color: transparent; color: inherit;">JSON</a>:</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt="AJAX" src="https://www.w3schools.com/whatis/img_ajax.gif" /></p>\r\n\r\n<p>&nbsp;</p>\r\n', '2020-09-22 09:16:18', 6),
+(16, 'What is CSS?', '<p>CSS&nbsp;stands for&nbsp;Cascading&nbsp;Style&nbsp;Sheets</p>\r\n\r\n<p>CSS describes how&nbsp;HTML&nbsp;elements are to be&nbsp;displayed</p>\r\n\r\n<h3>CSS Example</h3>\r\n\r\n<p><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>style<span style="color:mediumblue">&gt;</span></span><br />\r\n<br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px">body&nbsp;<span style="color:black">{</span><span style="color:red">background-color<span style="color:mediumblue"><span style="color:black">:</span>lightblue<span style="color:black">;</span></span>&nbsp;text-align<span style="color:mediumblue"><span style="color:black">:</span>center<span style="color:black">;</span></span></span><span style="color:black">}</span><br />\r\nh1&nbsp;<span style="color:black">{</span><span style="color:red">color<span style="color:mediumblue"><span style="color:black">:</span>blue<span style="color:black">;</span></span>&nbsp;font-size<span style="color:mediumblue"><span style="color:black">:</span>40px<span style="color:black">;</span></span></span><span style="color:black">}</span><br />\r\np&nbsp;<span style="color:black">{</span><span style="color:red">font-family<span style="color:mediumblue"><span style="color:black">:</span>verdana<span style="color:black">;</span></span>&nbsp;font-size<span style="color:mediumblue"><span style="color:black">:</span>20px<span style="color:black">;</span></span></span><span style="color:black">}</span></span><br />\r\n<br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/style<span style="color:mediumblue">&gt;</span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h2>CSS Syntax</h2>\r\n\r\n<p>A CSS rule consists of a&nbsp;selector&nbsp;and a&nbsp;declaration&nbsp;block:</p>\r\n\r\n<p><img alt="CSS selector" src="https://www.w3schools.com/whatis/img_selector.gif" /></p>\r\n\r\n<p>The selector points to the HTML element to style (h1).</p>\r\n\r\n<p>The declaration block (in curly braces) contains one or more declarations separated by semicolons.</p>\r\n\r\n<p>Each declaration includes a CSS property name and a value, separated by a colon.</p>\r\n\r\n<p>In the following example all &lt;p&gt; elements will be center-aligned, red and have a font size of 32 pixels:</p>\r\n\r\n<h3>Example</h3>\r\n\r\n<p><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>style<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px">p&nbsp;<span style="color:black">{</span><span style="color:red">font-size<span style="color:mediumblue"><span style="color:black">:</span>32px<span style="color:black">;</span></span>&nbsp;color<span style="color:mediumblue"><span style="color:black">:</span>red<span style="color:black">;</span></span>&nbsp;text-align<span style="color:mediumblue"><span style="color:black">:</span>center<span style="color:black">;</span></span></span><span style="color:black">}</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/style<span style="color:mediumblue">&gt;</span></span></p>\r\n\r\n<p><span style="background-color:rgb(241, 241, 241); color:rgb(0, 0, 0); font-family:verdana,sans-serif; font-size:15px">Same example can also be written like this:</span></p>\r\n\r\n<p><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>style<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px">p&nbsp;<span style="color:black">{</span><br />\r\n<span style="color:red">&nbsp;&nbsp;&nbsp; font-size<span style="color:mediumblue"><span style="color:black">:</span>&nbsp;32px<span style="color:black">;</span></span><br />\r\n&nbsp;&nbsp;&nbsp; color<span style="color:mediumblue"><span style="color:black">:</span>&nbsp;red<span style="color:black">;</span></span><br />\r\n&nbsp;&nbsp;&nbsp; text-align<span style="color:mediumblue"><span style="color:black">:</span>&nbsp;center<span style="color:black">;</span></span></span><br />\r\n<span style="color:black">}</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/style<span style="color:mediumblue">&gt;</span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h2>External Style Sheet</h2>\r\n\r\n<p>A CSS style sheet can be stored in an&nbsp;external&nbsp;file:</p>\r\n\r\n<h3><strong>mystyle.css</strong></h3>\r\n\r\n<p><span style="color:rgb(165, 42, 42); font-family:consolas,courier new; font-size:15px">body&nbsp;</span><span style="color:black; font-family:consolas,courier new; font-size:15px">{</span><span style="color:red; font-family:consolas,courier new; font-size:15px">background-color<span style="color:mediumblue"><span style="color:black">:</span>&nbsp;orange<span style="color:black">;</span></span>&nbsp;font-family<span style="color:mediumblue"><span style="color:black">:</span>verdana</span></span><span style="color:black; font-family:consolas,courier new; font-size:15px">}</span><br />\r\n<span style="color:rgb(165, 42, 42); font-family:consolas,courier new; font-size:15px">h1&nbsp;</span><span style="color:black; font-family:consolas,courier new; font-size:15px">{</span><span style="color:red; font-family:consolas,courier new; font-size:15px">color<span style="color:mediumblue"><span style="color:black">:</span>&nbsp;white<span style="color:black">;</span></span></span><span style="color:black; font-family:consolas,courier new; font-size:15px">}</span><br />\r\n<span style="color:rgb(165, 42, 42); font-family:consolas,courier new; font-size:15px">p&nbsp;</span><span style="color:black; font-family:consolas,courier new; font-size:15px">{</span><span style="color:red; font-family:consolas,courier new; font-size:15px">font-size<span style="color:mediumblue"><span style="color:black">:</span>&nbsp;20px<span style="color:black">;</span></span></span><span style="color:black; font-family:consolas,courier new; font-size:15px">}</span></p>\r\n\r\n<p><span style="color:rgb(0, 0, 0); font-family:verdana,sans-serif; font-size:15px">External style sheets are linked to HTML pages with&nbsp;</span><span style="color:rgb(0, 0, 0); font-family:verdana,sans-serif; font-size:15px">&lt;link&gt;</span><span style="color:rgb(0, 0, 0); font-family:verdana,sans-serif; font-size:15px">&nbsp;tags:</span></p>\r\n\r\n<p><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>!DOCTYPE<span style="color:red">&nbsp;html</span><span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>html<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>link<span style="color:red">&nbsp;rel<span style="color:mediumblue">=&quot;stylesheet&quot;</span>&nbsp;href<span style="color:mediumblue">=&quot;mystyle.css&quot;</span></span><span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>body<span style="color:mediumblue">&gt;</span></span><br />\r\n<br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>h1<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">My First CSS Example</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/h1<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>p<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">This is a paragraph.</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/p<span style="color:mediumblue">&gt;</span></span><br />\r\n<br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/body<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/html<span style="color:mediumblue">&gt;</span></span></p>\r\n\r\n<p>Inline Style</p>\r\n\r\n<p><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>!DOCTYPE<span style="color:red">&nbsp;html</span><span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>html<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>link<span style="color:red">&nbsp;rel<span style="color:mediumblue">=&quot;stylesheet&quot;</span>&nbsp;href<span style="color:mediumblue">=&quot;mystyle.css&quot;</span></span><span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>body<span style="color:mediumblue">&gt;</span></span><br />\r\n<br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>h1<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">My First CSS Example</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/h1<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>p<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">This is a paragraph.</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/p<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>p<span style="color:red">&nbsp;style<span style="color:mediumblue">=&quot;font-size:25px&quot;</span></span><span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">This is a paragraph.</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/p<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>p<span style="color:red">&nbsp;style<span style="color:mediumblue">=&quot;font-size:30px&quot;</span></span><span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">This is a paragraph.</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/p<span style="color:mediumblue">&gt;</span></span><br />\r\n<br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/body<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/html<span style="color:mediumblue">&gt;</span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h2>Cascading Order</h2>\r\n\r\n<p>If different styles are specified for HTML elements, the styles will&nbsp;cascade&nbsp;into new styles with the following priority:</p>\r\n\r\n<ul style="list-style-type:none">\r\n  <li>Priority 1: Inline styles</li>\r\n  <li>Priority 2: External and internal style sheets</li>\r\n <li>Priority 3: Browser default</li>\r\n  <li>If different styles are defined on the same priority level, the last one has the highest priority.</li>\r\n</ul>\r\n\r\n<h3>Example</h3>\r\n\r\n<p><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>!DOCTYPE<span style="color:red">&nbsp;html</span><span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>html<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>link<span style="color:red">&nbsp;rel<span style="color:mediumblue">=&quot;stylesheet&quot;</span>&nbsp;href<span style="color:mediumblue">=&quot;mystyle.css&quot;</span></span><span style="color:mediumblue">&gt;</span></span><br />\r\n<br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>style<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px">body&nbsp;<span style="color:black">{</span><span style="color:red">background-color<span style="color:mediumblue"><span style="color:black">:</span>&nbsp;lightblue<span style="color:black">;</span></span></span><span style="color:black">}</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/style<span style="color:mediumblue">&gt;</span></span><br />\r\n<br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>body<span style="color:red">&nbsp;style<span style="color:mediumblue">=&quot;background-color: olivedrab&quot;</span></span><span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>h1<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">Multiple Styles Cascades into One</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/h1<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>p<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">Try experimenting by removing styles to see how the cascading stylesheets work.</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/p<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>p<span style="color:mediumblue">&gt;</span></span><span style="color:rgb(0, 0, 0); font-family:consolas,courier new; font-size:15px">Try removing the inline first, then the internal, then the external.</span><span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/p<span style="color:mediumblue">&gt;</span></span><br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/body<span style="color:mediumblue">&gt;</span></span><br />\r\n<br />\r\n<span style="color:brown; font-family:consolas,courier new; font-size:15px"><span style="color:mediumblue">&lt;</span>/html<span style="color:mediumblue">&gt;</span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n', '2020-09-22 09:30:22', 6);
 
-#
-# Structure for table "tbl_user"
-#
+-- --------------------------------------------------------
 
-CREATE TABLE `tbl_user` (
-  `user_Id` int(11) NOT NULL AUTO_INCREMENT,
-  `fname` varchar(255) DEFAULT NULL,
-  `mname` varchar(255) DEFAULT NULL,
-  `lname` varchar(255) DEFAULT NULL,
-  `dob` date DEFAULT NULL,
-  `gender` varchar(255) DEFAULT NULL,
-  `course` varchar(255) DEFAULT NULL,
-  `yrlvl` varchar(255) DEFAULT NULL,
-  `username` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`user_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+--
+-- Table structure for table `tbl_user`
+--
 
-#
-# Data for table "tbl_user"
-#
+CREATE TABLE IF NOT EXISTS `tbl_user` (
+  `user_Id` int(11) NOT NULL auto_increment,
+  `fname` varchar(255) default NULL,
+  `mname` varchar(255) default NULL,
+  `lname` varchar(255) default NULL,
+  `dob` date default NULL,
+  `gender` varchar(255) default NULL,
+  `course` varchar(255) default NULL,
+  `yrlvl` varchar(255) default NULL,
+  `username` varchar(255) default NULL,
+  `password` varchar(255) default NULL,
+  PRIMARY KEY  (`user_Id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
-INSERT INTO `tbl_user` VALUES (1,'samples','sample','sample','2015-05-20','Male','BSIT','4','sample','5e8ff9bf55ba3508199d22e984129be6'),(2,'test','test','test','2015-05-08','Female','BSIT','1','test','098f6bcd4621d373cade4e832627b4f6'),(3,'aaa','aaa','aaa','2015-05-07','Male','BSCS','4','aaa','47bce5c74f589f4867dbd57e9ca9f808'),(4,'lorem','lorem','lorem','2015-04-30','Male','BSIT','2','lorem','d2e16e6ef52a45b7468f1da56bba1953');
+--
+-- Dumping data for table `tbl_user`
+--
+
+INSERT INTO `tbl_user` (`user_Id`, `fname`, `mname`, `lname`, `dob`, `gender`, `course`, `yrlvl`, `username`, `password`) VALUES
+(6, 'Kenneth', 'C.', 'Okoro', '2020-09-30', 'Male', 'Computer Science', 'HND1', 'kendo', '81dc9bdb52d04dc20036dbd8313ed055');
