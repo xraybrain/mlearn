@@ -4,7 +4,7 @@
 function dbcon(){
 	$host = "us-cdbr-east-02.cleardb.com";
 	$user = "b37a8abc52df42";
-	$password = "017b786c";
+	$pwd = "017b786c";
 	$db = "heroku_008a42196f61275";
 	
 	global $con;
@@ -14,10 +14,10 @@ function dbcon(){
 }
 
 function dbclose(){
-	$host = "localhost";
-	$user = "root";
-	$pwd = "";
-	$db = "db_elearning";
+	$host = "us-cdbr-east-02.cleardb.com";
+	$user = "b37a8abc52df42";
+	$pwd = "017b786c";
+	$db = "heroku_008a42196f61275";
 	
 	$con = mysqli_connect($host,$user,$pwd) or die ("ERROR Connecting to Database");
 	
@@ -30,7 +30,7 @@ function category(){
 	dbcon();
 	global $con;
 	
-	$sel = mysqli_query($con,"SELECT * from tbl_category");
+	$sel = mysqli_query($con,"SELECT * from tbl_category") or die(mysqli_error($con));
 	
 	if($sel==true){
 		while($row=mysqli_fetch_assoc($sel)){
@@ -40,7 +40,7 @@ function category(){
 	}
 	
 	
-	dbclose();
+	//dbclose();
 }
 function sub(){
 	dbcon();

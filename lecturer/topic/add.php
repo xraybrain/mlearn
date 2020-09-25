@@ -33,7 +33,7 @@ $uname=$_SESSION['uname'];
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
 </a>
-<a class="brand" href="#">Admin Panel</a>
+<a class="brand" href="#">Lecturer Panel</a>
 <div class="nav-collapse collapse">
 <ul class="nav pull-right">
 <li class="dropdown">
@@ -89,7 +89,7 @@ $percent = $data['total'];
 <a href="../quiz/index.php"><span class="badge badge-info pull-right"><?php echo $percent;?></span> Quiz</a>
 </li>
 
-<li>
+<!-- <li>
 <?php
 include '../../functions/connect.php';
 
@@ -99,7 +99,7 @@ $percent = $data['total'];
 
 ?>
 <a href="../comment/index.php"><span class="badge badge-info pull-right"><?php echo $percent;?></span> Comment</a>
-</li>
+</li> -->
 
 </ul>
 </div>
@@ -148,7 +148,7 @@ $percent = $data['total'];
 <label>Category</label>
 <select class="form-control" name="category">
 <option></option>
-<?php include "function.php"; category(); ?>
+<?php include "function.php"; category();?>
 </select>
 <br>
 <input type="submit" class="btn btn-primary" value="Publish">

@@ -89,7 +89,7 @@ $uname=$_SESSION['uname'];
                                     ?>
                             <a href="quiz/index.php"><span class="badge badge-info pull-right"><?php echo $percent;?></span> Quiz</a>
                         </li>
-                        <li>
+                        <!-- <li>
                         <?php
                                     include '../functions/connect.php';
 
@@ -99,7 +99,7 @@ $uname=$_SESSION['uname'];
                                     
                                     ?>
                             <a href="comment/index.php"><span class="badge badge-info pull-right"><?php echo $percent;?></span> Comment</a>
-                        </li>
+                        </li> -->
                      
                     </ul>
                 </div>

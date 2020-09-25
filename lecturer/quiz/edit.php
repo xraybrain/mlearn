@@ -14,7 +14,7 @@ $uname=$_SESSION['uname'];
     <head>
         <title>M-Learning</title>
           <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="../../vendors/bootstrap-wysihtml5/src/bootstrap-wysihtml5.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../vendors/bootstrap-wysihtml5/src/bootstrap-wysihtml5.css">
         <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="../../assets/styles.css" rel="stylesheet" media="screen">
          <link rel="icon" type="image/png"  href="../../images/favicon.png">
@@ -89,7 +89,7 @@ $uname=$_SESSION['uname'];
                             <a href="../quiz/index.php"><span class="badge badge-info pull-right"><?php echo $percent;?></span> Quiz</a>
                         </li>
                         
-                          <li>
+                          <!-- <li>
                         <?php
                                     include '../../functions/connect.php';
 
@@ -99,7 +99,7 @@ $uname=$_SESSION['uname'];
                                     
                                     ?>
                             <a href="../comment/index.php"><span class="badge badge-info pull-right"><?php echo $percent;?></span> Comment</a>
-                        </li>
+                        </li> -->
                        
                     </ul>
                 </div>
@@ -200,7 +200,7 @@ $uname=$_SESSION['uname'];
                                     <label>topic</label>
                                     <select class="form-control" name="category">
                                         <option></option>
-                                        <?php include "function.php"; topic(); ?>
+                                       
                                     </select>
                                     -->
                                         <br>
