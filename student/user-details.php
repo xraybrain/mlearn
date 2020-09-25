@@ -62,7 +62,6 @@ $username=$_SESSION['username'];
 <header id="head" class="secondary">
 <div class="container">
 <h1>User Details</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing eliras scele!</p>
 </div>
 </header>
 
