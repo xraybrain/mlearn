@@ -5,10 +5,10 @@
 
 	$username = $_POST['adm_user'];
     $password = $_POST['adm_pwd'];
-	$pwd = md5($password);
 
 	$username = mysqli_real_escape_string($con, $_POST['adm_user']);
-    $password = mysqli_real_escape_string($con, $_POST['adm_user']);
+    $password = mysqli_real_escape_string($con, $_POST['adm_pwd']);
+    $pwd = md5($password);
 
     $query = "SELECT * FROM tbl_admin WHERE adm_user = '$username' AND adm_pwd = '$pwd'";
     $result = mysqli_query($con, $query) or die ("Verification error");

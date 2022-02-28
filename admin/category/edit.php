@@ -205,7 +205,7 @@ $adm_user=$_SESSION['adm_user'];
             </div>
             <hr>
             <footer>
-                <p>&copy; 2020</p>
+                <p>&copy; <span id="year"></span></p>
             </footer>
         </div>
          <script src="../../vendors/jquery-1.9.1.js"></script>

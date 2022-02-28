@@ -313,7 +313,7 @@ $uname=$_SESSION['uname'];
             </div>
             <hr>
             <footer>
-                <p>&copy; 2020</p>
+                <p>&copy; <span id="year"></span></p>
             </footer>
         </div>
         <!--/.fluid-container-->

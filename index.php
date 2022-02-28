@@ -110,7 +110,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="col-md-6 panel">
 						<div class="panel-body">
 							<p class="text-right">
-								Copyright &copy; 2020.
+								Copyright &copy; <span id="year"></span>.
 							</p>
 						</div>
 					</div>

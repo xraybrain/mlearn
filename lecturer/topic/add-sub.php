@@ -165,7 +165,7 @@ $uname=$_SESSION['uname'];
             </div>
             <hr>
             <footer>
-                <p>&copy; 2020</p>
+                <p>&copy; <span id="year"></span></p>
             </footer>
         </div>
          <script src="../../vendors/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>

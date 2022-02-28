@@ -6,6 +6,7 @@ Website: http://webthemez.com
 Note: Please do not remove the footer backlink (webthemez.com)--(if you want to remove contact: webthemez@gmail.com)
 Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/licenses/by/3.0/
 */
+document.querySelector("#year").innerHTML = (new Date()).getFullYear();
 jQuery(document).ready(function ($) {
     
     //Set the carousel options

@@ -488,7 +488,7 @@ $adm_user=$_SESSION['adm_user'];
             </div>
             <hr>
             <footer>
-                <p>&copy; 2020</p>
+                <p>&copy; <span id="year"></span></p>
             </footer>
         </div>
         <!--/.fluid-container-->
